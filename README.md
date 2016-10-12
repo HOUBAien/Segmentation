@@ -144,10 +144,15 @@ angle: 158.434934444
 
 
 ### Sphere Segmentation
+
 First draw a rectangle which contains the sphere object on the image window.
+
 <img src="https://github.com/CTTC/Segmentation/blob/master/sphere_cv.png" alt="sphere_cv" width="636" height="477" class="aligncenter size-full wp-image-2556" />
+
 The segmented sphere point cloud:
+
 <img src="https://github.com/CTTC/Segmentation/blob/master/sphere_pcl.png" alt="sphere_pcl" width="530" height="356" class="aligncenter size-full wp-image-2557" />
+
 Example output of processed_sphere_data will be like this:
 ```bash
 ---
