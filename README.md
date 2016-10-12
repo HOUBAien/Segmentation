@@ -17,8 +17,11 @@ Launch the program by:
 roslaunch segmentation cylinder_seg.launch cv:=true viewDisplay:=true cmdOutput:=true
 ```
 Note: `cv`, `viewDisplay`, `cmdOutput` are optional.
+
 `cv`: if set to true (recommend), you can manually select the region of interest that contains the target cylinder in an opencv image window. In this way, you can deal with the multiple cylinders scenario. Otherwise, the program will try to find a cylinder on its own. It then will not work when multiple cylinders exist.
+
 `viewDisplay`: if set to true, the point cloud viewer will pop out so that you can see the current point clouds.
+
 `cmdOutput`: if set to true, some extra information will show up in the terminal when you launch the program.
 
 
@@ -44,8 +47,11 @@ Launch the program by:
 roslaunch segmentation cylinder_seg.launch cv:=true viewDisplay:=true cmdOutput:=true
 ```
 Note: `cv`, `viewDisplay`, `cmdOutput` are optional.
+
 `cv`: if set to true (recommend), you can manually select the region of interest that contains the target box in an opencv image window. In this way, you can deal with the multiple boxes scenario. Otherwise, the program will try to find a box on its own. It then will not work when multiple boxes exist.
+
 `viewDisplay`: if set to true, the point cloud viewer will pop out so that you can see the current point clouds.
+
 `cmdOutput`: if set to true, some extra information will show up in the terminal when you launch the program.
 
 
@@ -72,7 +78,9 @@ Launch the program by:
 roslaunch segmentation sphere_seg.launch viewDisplay:=true cmdOutput:=true
 ```
 Note:  `viewDisplay`, `cmdOutput` are optional.
+
 `viewDisplay`: if set to true, the point cloud viewer will pop out so that you can see the current point clouds.
+
 `cmdOutput`: if set to true, some extra information will show up in the terminal when you launch the program.
 
 
