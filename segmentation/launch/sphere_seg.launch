@@ -1,0 +1,10 @@
+<launch> 
+  <arg name="viewDisplay" default="false" />
+  <arg name="cmdOutput" default="false" />
+
+  <node name="sphere_segmentation" pkg="segmentation" type="sphere_segmentation_node" output="screen"/>
+      <param name="viewDisplay" type="bool" value="$(arg viewDisplay)" />
+      <param name="cmdOutput" type="bool" value="$(arg cmdOutput)" />
+  <node name="sphere_coeffi" pkg="segmentation" type="sphere_coeffi.py" output="screen"/>
+
+</launch>

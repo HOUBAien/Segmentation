@@ -1,0 +1,17 @@
+<launch> 
+  <arg name="viewDisplay" default="false" />
+  <arg name="cmdOutput" default="false" />
+  <arg name="cv" default="false" />
+  <group unless="$(arg cv)">
+     <node name="cylinder_segmentation" pkg="segmentation" type="cylinder_segmentation_node" output="screen"/>
+        <param name="viewDisplay" type="bool" value="$(arg viewDisplay)" />
+        <param name="cmdOutput" type="bool" value="$(arg cmdOutput)" />
+     <node name="cylinder_coeffi" pkg="segmentation" type="cylinder_coeffi.py" output="screen"/>
+  </group>
+  <group if="$(arg cv)">
+     <node name="cylinder_segmentation_cv" pkg="segmentation" type="cylinder_extraction_cv_pcl_node" output="screen"/>
+        <param name="viewDisplay" type="bool" value="$(arg viewDisplay)" />
+        <param name="cmdOutput" type="bool" value="$(arg cmdOutput)" />
+     <node name="cylinder_coeffi" pkg="segmentation" type="cylinder_coeffi.py" output="screen"/>
+  </group>
+</launch>
