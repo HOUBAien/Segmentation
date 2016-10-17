@@ -19,6 +19,8 @@ add_message_files(
    FILES
    box_data.msg
    processed_box_data.msg
+   box_3D_data.msg
+   processed_box_3D_data.msg
    cylinder_data.msg
    processed_cylinder_data.msg
    sphere_data.msg
@@ -63,6 +65,9 @@ target_link_libraries(box_segmentation_node ${catkin_LIBRARIES} ${PCL_LIBRARIES}
 
 add_executable(box_extraction_cv_pcl_node src/box_extraction_cv_pcl.cpp)
 target_link_libraries(box_extraction_cv_pcl_node ${catkin_LIBRARIES} ${PCL_LIBRARIES} libvtkCommon.so libvtkFiltering.so)
+
+add_executable(box_extraction_cv_pcl_3D_node src/box_extraction_cv_pcl_3D.cpp)
+target_link_libraries(box_extraction_cv_pcl_3D_node ${catkin_LIBRARIES} ${PCL_LIBRARIES} libvtkCommon.so libvtkFiltering.so)
 
 add_executable(sphere_segmentation_node src/sphere_segmentation.cpp)
 target_link_libraries(sphere_segmentation_node ${catkin_LIBRARIES} ${PCL_LIBRARIES} libvtkCommon.so libvtkFiltering.so)

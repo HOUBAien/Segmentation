@@ -1,0 +1,10 @@
+<launch> 
+  <arg name="viewDisplay" default="false" />
+  <arg name="cmdOutput" default="false" />
+
+  <node name="box_extraction_cv_3D" pkg="segmentation" type="box_extraction_cv_pcl_3D_node" output="screen"/>
+      <param name="viewDisplay" type="bool" value="$(arg viewDisplay)" />
+      <param name="cmdOutput" type="bool" value="$(arg cmdOutput)" />
+  <node name="box_coeffi" pkg="segmentation" type="box_coeffi_3D.py" output="screen"/>
+
+</launch>

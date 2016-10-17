@@ -7,8 +7,8 @@ import numpy as np
 import yaml
 import sys
 
-from segmentation.msg import processed_box_data
-from segmentation.msg import box_data
+from segmentation.msg import processed_box_3D_data
+from segmentation.msg import box_3D_data
 
 
 
@@ -18,12 +18,12 @@ y_offset = -0.001
 z_offset = 0.001
 
 
-class box_coefficients:
+class box_3D_coefficients:
     def __init__(self):
 
 
-        self.box_data_pub = rospy.Publisher('processed_box_data', processed_box_data,queue_size=10)
-        self.box_data_sub = rospy.Subscriber('box_data',box_data,self.box_callback)
+        self.box_3D_data_pub = rospy.Publisher('processed_box_3D_data', processed_box_3D_data,queue_size=10)
+        self.box_3D_data_sub = rospy.Subscriber('box_3D_data',box_3D_data,self.box_3D_callback)
 
 
         self.rgb_rmat = None
@@ -42,29 +42,44 @@ class box_coefficients:
         self.load_extrinsics()
 
 
-    def box_callback(self,data):
-        data = np.array(data.box_data).astype(float)
-        length = data[0]
-        width = data[1]
-        height = data[2]
-        center = data[3:6]
-        long_edge = data[6:9]
+    def box_3D_callback(self,data):
+        center = np.array(data.center).astype(float)
+        longestEdgeLen = data.longestEdgeLen
+        medianEdgeLen = data.medianEdgeLen
+        shortestEdgeLen = data.shortestEdgeLen
+
+        longestEdgeDir = np.array(data.longestEdgeDir).astype(float)
+        medianEdgeDir = np.array(data.medianEdgeDir).astype(float)
+        shortestEdgeDir = np.array(data.shortestEdgeDir).astype(float)
+
 
         center_in_world = self.point_in_rgb_to_world(center.reshape(3,1))
-        alpha = self.get_angle_to_x_axis(long_edge)
 
-        msg = processed_box_data()
-        msg.angle = alpha
+        msg = processed_box_3D_data()
         msg.center = center_in_world
-        msg.height = height
-        msg.width = width
-        msg.length = length
-        self.box_data_pub.publish(msg)
+        msg.longestEdgeLen = longestEdgeLen
+        msg.medianEdgeLen = medianEdgeLen
+        msg.shortestEdgeLen = shortestEdgeLen
+        msg.longestEdgeDir = self.get_vector_in_world(longestEdgeDir)
+        msg.medianEdgeDir = self.get_vector_in_world(medianEdgeDir)
+        msg.shortestEdgeDir = self.get_vector_in_world(shortestEdgeDir)
+
+        self.box_3D_data_pub.publish(msg)
+
+    def get_vector_in_world(self, dir_vector):
+        dir_end_in_world = self.point_in_rgb_to_world(dir_vector.reshape(3,1))
+        rgb_origin_in_world = self.point_in_rgb_to_world(np.zeros((3,1)))
+        dir_vector_in_world = dir_end_in_world - rgb_origin_in_world
+        dir_vector_in_world /= np.linalg.norm(dir_vector_in_world)
+        return dir_vector_in_world
+
+
+
 
     def get_angle_to_x_axis(self, long_edge_vector):
         long_edge_in_world = self.point_in_rgb_to_world(long_edge_vector.reshape(3,1))
         rgb_origin_in_world = self.point_in_rgb_to_world(np.zeros((3,1)))
-        long_edge_in_world = long_edge_in_world - rgb_origin_in_world
+        long_edge_in_world = (long_edge_in_world - rgb_origin_in_world)
         long_edge_in_world /= np.linalg.norm(long_edge_in_world)
 
         alpha = np.arctan2(long_edge_in_world[1,0], long_edge_in_world[0,0])
@@ -112,31 +127,12 @@ class box_coefficients:
 
         return point_in_world
 
-    def get_axis_in_world(self, cylinder_coefficients):
-        # cylinder_coefficients are the coefficients from pcl SACSegmentationFromNormals
-        point_in_axis = np.zeros(3)
-        axis_one_end = np.zeros(3)
-        axis_another_end = np.zeros(3)
-        point_in_axis = cylinder_coefficients[:3]
-        axis_another_end = cylinder_coefficients[3:6]
 
-        point_in_axis_in_world = self.point_in_rgb_to_world(point_in_axis.reshape(3,1))
-        axis_one_end_in_world = self.point_in_rgb_to_world(axis_one_end.reshape(3,1))
-        axis_another_end_in_world = self.point_in_rgb_to_world(axis_another_end.reshape(3,1))
-
-        central_axis_direction = axis_another_end_in_world - axis_one_end_in_world
-        point_in_central_axis = point_in_axis_in_world
-
-        central_axis_direction = central_axis_direction / np.linalg.norm(central_axis_direction)
-
-
-
-        return central_axis_direction
 
 
 if __name__ == "__main__":
-    rospy.init_node('box_coefficients_transformation')
-    ic = box_coefficients()
+    rospy.init_node('box_3D_coefficients_transformation')
+    ic = box_3D_coefficients()
     try:
         rospy.spin()
     except KeyboardInterrupt:
