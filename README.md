@@ -140,17 +140,17 @@ Note: Unit of all parameters here except the angle is meter
 Here is a testing example for this package.
 Kinect is calibrated. And the world coordinate system is set to be located at the bottom left crossing point in the chessboard. Just like the following figure.
 
-<img src="https://github.com/CTTC/Segmentation/blob/master/world_coord.png" alt="world_coord" width="639" height="508" class="aligncenter size-full wp-image-2493" />
+<img src="https://github.com/CTTC/Segmentation/blob/master/figures/world_coord.png" alt="world_coord" width="639" height="508" class="aligncenter size-full wp-image-2493" />
 
 ### Cylinder Segmentation
 
 First draw a rectangle which contains the cylinder object on the image window.
 
-<img src="https://github.com/CTTC/Segmentation/blob/master/cylinder_cv.png" alt="cylinder_cv" width="639" height="508" class="aligncenter size-full wp-image-2490" />
+<img src="https://github.com/CTTC/Segmentation/blob/master/figures/cylinder_cv.png" alt="cylinder_cv" width="639" height="508" class="aligncenter size-full wp-image-2490" />
 
 The segmented cylinder point cloud:
 
-<img src="https://github.com/CTTC/Segmentation/blob/master/cylinder_pcl.png" alt="cylinder_pcl" width="394" height="313" class="aligncenter size-full wp-image-2491" />
+<img src="https://github.com/CTTC/Segmentation/blob/master/figures/cylinder_pcl.png" alt="cylinder_pcl" width="394" height="313" class="aligncenter size-full wp-image-2491" />
 
 Example output of processed_cylinder_data will be like this:
 ```bash
@@ -163,11 +163,11 @@ radius: 0.0417184047401
 
 First draw a rectangle which contains the box object on the image window.
 
-<img src="https://github.com/CTTC/Segmentation/blob/master/box_cv.png" alt="box_cv" width="636" height="504" class="aligncenter size-full wp-image-2488" />
+<img src="https://github.com/CTTC/Segmentation/blob/master/figures/box_cv.png" alt="box_cv" width="636" height="504" class="aligncenter size-full wp-image-2488" />
 
 The segmented box point cloud:
 
-<img src="https://github.com/CTTC/Segmentation/blob/master/box_pcl.png" alt="box_pcl" width="657" height="363" class="aligncenter size-full wp-image-2489" />
+<img src="https://github.com/CTTC/Segmentation/blob/master/figures/box_pcl.png" alt="box_pcl" width="657" height="363" class="aligncenter size-full wp-image-2489" />
 
 Example output of processed_box_data will be like this:
 ```bash
@@ -184,11 +184,11 @@ angle: 158.434934444
 * First case: the box is placed horizontally on the table
 In this case, it is pretty much the same as **Box Segmentation (2D)**
 First draw a rectangle which contains the box object on the image window.
-<img src="http://bbs.slxrobot.com/wp-content/uploads/2016/10/horizontal_cv.png" alt="horizontal_cv" width="630" height="479" class="aligncenter size-full wp-image-2577" />
+<img src="https://github.com/CTTC/Segmentation/tree/master/figures/horizontal_cv.png" alt="horizontal_cv" width="630" height="479" class="aligncenter size-full wp-image-2577" />
 
 Then the segmented box point cloud looks like this:
-<img src="http://bbs.slxrobot.com/wp-content/uploads/2016/10/horizontal_pcl1.png" alt="horizontal_pcl1" width="455" height="388" class="aligncenter size-full wp-image-2578" />
-<img src="http://bbs.slxrobot.com/wp-content/uploads/2016/10/horizontal_pcl2.png" alt="horizontal_pcl2" width="569" height="206" class="aligncenter size-full wp-image-2579" />
+<img src="https://github.com/CTTC/Segmentation/tree/master/figures/horizontal_pcl1.png" alt="horizontal_pcl1" width="455" height="388" class="aligncenter size-full wp-image-2578" />
+<img src="https://github.com/CTTC/Segmentation/tree/master/figures/horizontal_pcl2.png" alt="horizontal_pcl2" width="569" height="206" class="aligncenter size-full wp-image-2579" />
 
 Example output of processed_box_3D_data will be like this:
 ```bash
@@ -205,12 +205,12 @@ shortestEdgeDir: [-0.007786559068384082, -0.00293940025209827, 0.999965364112193
 * Second case: kinect sees three faces of the box
 
 Draw a rectangle which contains the box object on the image window.
-<img src="http://bbs.slxrobot.com/wp-content/uploads/2016/10/3face_cv.png" alt="3face_cv" width="635" height="477" class="aligncenter size-full wp-image-2574" />
+<img src="https://github.com/CTTC/Segmentation/tree/master/figures/3face_cv.png" alt="3face_cv" width="635" height="477" class="aligncenter size-full wp-image-2574" />
 
 
 Then the segmented box point cloud looks like this:
-<img src="http://bbs.slxrobot.com/wp-content/uploads/2016/10/3face_pcl1.png" alt="3face_pcl1" width="803" height="578" class="aligncenter size-full wp-image-2575" />
-<img src="http://bbs.slxrobot.com/wp-content/uploads/2016/10/3face_pcl2.png" alt="3face_pcl2" width="677" height="423" class="aligncenter size-full wp-image-2576" />
+<img src="https://github.com/CTTC/Segmentation/tree/master/figures/3face_pcl1.png" alt="3face_pcl1" width="803" height="578" class="aligncenter size-full wp-image-2575" />
+<img src="https://github.com/CTTC/Segmentation/tree/master/figures/3face_pcl2.png" alt="3face_pcl2" width="677" height="423" class="aligncenter size-full wp-image-2576" />
 
 Example output of processed_box_3D_data will be like this:
 ```bash
@@ -226,11 +226,11 @@ shortestEdgeDir: [-0.13417326893003623, -0.2524111482444952, -0.9582724801154021
 
 * Third case:kinect only sees two faces of the box
 Draw a rectangle which contains the box object on the image window.
-<img src="http://bbs.slxrobot.com/wp-content/uploads/2016/10/2face_cv.png" alt="2face_cv" width="641" height="483" class="aligncenter size-full wp-image-2571" />
+<img src="https://github.com/CTTC/Segmentation/tree/master/figures/2face_cv.png" alt="2face_cv" width="641" height="483" class="aligncenter size-full wp-image-2571" />
 
 Then the segmented box point cloud looks like this:
-<img src="http://bbs.slxrobot.com/wp-content/uploads/2016/10/2face_pcl2.png" alt="2face_pcl2" width="631" height="404" class="aligncenter size-full wp-image-2573" />
-<img src="http://bbs.slxrobot.com/wp-content/uploads/2016/10/2face_pcl1.png" alt="2face_pcl1" width="594" height="333" class="aligncenter size-full wp-image-2572" />
+<img src="https://github.com/CTTC/Segmentation/tree/master/figures/2face_pcl2.png" alt="2face_pcl2" width="631" height="404" class="aligncenter size-full wp-image-2573" />
+<img src="https://github.com/CTTC/Segmentation/tree/master/figures/2face_pcl1.png" alt="2face_pcl1" width="594" height="333" class="aligncenter size-full wp-image-2572" />
 
 Example output of processed_box_3D_data will be like this:
 ```bash
@@ -250,11 +250,11 @@ shortestEdgeDir: [-0.0017048003530623173, -0.31157605455935394, -0.9502196882200
 
 First draw a rectangle which contains the sphere object on the image window.
 
-<img src="https://github.com/CTTC/Segmentation/blob/master/sphere_cv.png" alt="sphere_cv" width="636" height="477" class="aligncenter size-full wp-image-2556" />
+<img src="https://github.com/CTTC/Segmentation/blob/master/figures/sphere_cv.png" alt="sphere_cv" width="636" height="477" class="aligncenter size-full wp-image-2556" />
 
 The segmented sphere point cloud:
 
-<img src="https://github.com/CTTC/Segmentation/blob/master/sphere_pcl.png" alt="sphere_pcl" width="530" height="356" class="aligncenter size-full wp-image-2557" />
+<img src="https://github.com/CTTC/Segmentation/blob/master/figures/sphere_pcl.png" alt="sphere_pcl" width="530" height="356" class="aligncenter size-full wp-image-2557" />
 
 Example output of processed_sphere_data will be like this:
 ```bash
