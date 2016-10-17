@@ -186,13 +186,13 @@ angle: 158.434934444
 In this case, it is pretty much the same as **Box Segmentation (2D)**
 First draw a rectangle which contains the box object on the image window.
 
-<img src="https://github.com/CTTC/Segmentation/tree/master/figures/horizontal_cv.png" alt="horizontal_cv" width="630" height="479" class="aligncenter size-full wp-image-2577" />
+<img src="https://github.com/CTTC/Segmentation/blob/master/figures/horizontal_cv.png" alt="horizontal_cv" width="630" height="479" class="aligncenter size-full wp-image-2577" />
 
 Then the segmented box point cloud looks like this:
 
-<img src="https://github.com/CTTC/Segmentation/tree/master/figures/horizontal_pcl1.png" alt="horizontal_pcl1" width="455" height="388" class="aligncenter size-full wp-image-2578" />
+<img src="https://github.com/CTTC/Segmentation/blob/master/figures/horizontal_pcl1.png" alt="horizontal_pcl1" width="455" height="388" class="aligncenter size-full wp-image-2578" />
 
-<img src="https://github.com/CTTC/Segmentation/tree/master/figures/horizontal_pcl2.png" alt="horizontal_pcl2" width="569" height="206" class="aligncenter size-full wp-image-2579" />
+<img src="https://github.com/CTTC/Segmentation/blob/master/figures/horizontal_pcl2.png" alt="horizontal_pcl2" width="569" height="206" class="aligncenter size-full wp-image-2579" />
 
 Example output of processed_box_3D_data will be like this:
 ```bash
@@ -210,14 +210,14 @@ shortestEdgeDir: [-0.007786559068384082, -0.00293940025209827, 0.999965364112193
 
 Draw a rectangle which contains the box object on the image window.
 
-<img src="https://github.com/CTTC/Segmentation/tree/master/figures/3face_cv.png" alt="3face_cv" width="635" height="477" class="aligncenter size-full wp-image-2574" />
+<img src="https://github.com/CTTC/Segmentation/blob/master/figures/3face_cv.png" alt="3face_cv" width="635" height="477" class="aligncenter size-full wp-image-2574" />
 
 
 Then the segmented box point cloud looks like this:
 
-<img src="https://github.com/CTTC/Segmentation/tree/master/figures/3face_pcl1.png" alt="3face_pcl1" width="803" height="578" class="aligncenter size-full wp-image-2575" />
+<img src="https://github.com/CTTC/Segmentation/blob/master/figures/3face_pcl1.png" alt="3face_pcl1" width="803" height="578" class="aligncenter size-full wp-image-2575" />
 
-<img src="https://github.com/CTTC/Segmentation/tree/master/figures/3face_pcl2.png" alt="3face_pcl2" width="677" height="423" class="aligncenter size-full wp-image-2576" />
+<img src="https://github.com/CTTC/Segmentation/blob/master/figures/3face_pcl2.png" alt="3face_pcl2" width="677" height="423" class="aligncenter size-full wp-image-2576" />
 
 Example output of processed_box_3D_data will be like this:
 ```bash
@@ -234,11 +234,11 @@ shortestEdgeDir: [-0.13417326893003623, -0.2524111482444952, -0.9582724801154021
 * Third case:kinect only sees two faces of the box
 Draw a rectangle which contains the box object on the image window.
 
-<img src="https://github.com/CTTC/Segmentation/tree/master/figures/2face_cv.png" alt="2face_cv" width="641" height="483" class="aligncenter size-full wp-image-2571" />
+<img src="https://github.com/CTTC/Segmentation/blob/master/figures/2face_cv.png" alt="2face_cv" width="641" height="483" class="aligncenter size-full wp-image-2571" />
 
 Then the segmented box point cloud looks like this:
 
-<img src="https://github.com/CTTC/Segmentation/tree/master/figures/2face_pcl2.png" alt="2face_pcl2" width="631" height="404" class="aligncenter size-full wp-image-2573" />
+<img src="https://github.com/CTTC/Segmentation/blob/master/figures/2face_pcl2.png" alt="2face_pcl2" width="631" height="404" class="aligncenter size-full wp-image-2573" />
 
 <img src="https://github.com/CTTC/Segmentation/blob/master/figures/2face_pcl1.png" alt="2face_pcl1" width="594" height="333" class="aligncenter size-full wp-image-2572" />
 
