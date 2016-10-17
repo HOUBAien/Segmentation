@@ -1,8 +1,13 @@
 # Segmentation
 
-This ros segmentation package is mainly used for **cylinder segmentation** and **box segmentation**. It's able to segment these elements and publish their **pose** information.
+This ros segmentation package is mainly used for **cylinder segmentation**, **box segmentation**, and ** sphere segmentation**. It's able to segment these elements and publish their **pose** information.
+
 For cylinder element, it will publish the coordinates of cylinder center(point) and central axis(vector) in the world coordinate system, and the radius of the cylinder.
-For box element, it will publish the length, width , height, center coordinates, and the angle between the x axis(world coordinate) and longer edge of the box's bottom face.
+
+For box (2D) element, it will publish the length, width , height, center coordinates, and the angle between the x axis(world coordinate) and longer edge of the box's bottom face.
+
+For box (3D) element, it will publish the center coordinates, edges length (longest edge length, median edge length, shortest edge length) and corresponding edges directions (represented as vector in world space)
+
 For sphere element, it will publish the center coordinates, and the radius.
 
 This package can be used together with object recognition program like [Faster RCNN](https://github.com/rbgirshick/py-faster-rcnn) so that the robot can first recognize the object, obtain its pose, and finally grasp it.
