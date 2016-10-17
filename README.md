@@ -40,7 +40,7 @@ radius: 0.0417184047401
 Note: unit of these parameters is meter.
 
 
-### Box segmentation
+### Box segmentation (2D)
 
 Launch the program by:
 ```bash
@@ -70,6 +70,43 @@ height: 0.0758980557858
 angle: 158.434934444
 ```
 Note: Unit of all parameters here except the angle is meter. Angle is measured in degree.
+
+
+### Box segmentation (3D)
+
+Launch the program by:
+```bash
+roslaunch segmentation box_seg_3D.launch viewDisplay:=true cmdOutput:=true
+```
+Note: `viewDisplay`, `cmdOutput` are optional.
+
+`viewDisplay`: if set to true, the point cloud viewer will pop out so that you can see the current point clouds.
+`cmdOutput`: if set to true, some extra information will show up in the terminal when you launch the program.
+
+
+To see the box's pose, run the following command in the terminal:
+```bash
+ rostopic echo /processed_box_3D_data
+```
+
+An example output of processed_box_3D_data will be like this:
+```bash
+---
+center: [0.16653619377903012, 0.051877501860137065, 0.08140872173126434]
+longestEdgeLen: 0.343752086163
+medianEdgeLen: 0.162613391876
+shortestEdgeLen: 0.0871307402849
+longestEdgeDir: [0.5491512947381777, 0.7872976496531994, -0.2803484730436944]
+medianEdgeDir: [-0.8466069263542995, 0.5237629179351927, -0.094494010629978]
+shortestEdgeDir: [-0.13417326893003623, -0.2524111482444952, -0.9582724801154021]
+```
+Note: Unit of all parameters here except the angle is meter. This program can estimate the pose of a box placed randomly in space. It deals with the following three cases:
+* the box is placed horizontally on the table
+* kinect sees three faces of the box
+* kinect only sees two faces of the box
+ The first case is not isolated from the latter two cases. It's just that the program can use simpler algorithm to estimate the box's pose when one face is parallel to the table.
+
+
 
 ### Sphere segmentation
 
@@ -141,6 +178,72 @@ width: 0.154265999794
 height: 0.0758980557858
 angle: 158.434934444
 ```
+
+### Box Segmentation (3D)
+
+* First case: the box is placed horizontally on the table
+In this case, it is pretty much the same as **Box Segmentation (2D)**
+First draw a rectangle which contains the box object on the image window.
+<img src="http://bbs.slxrobot.com/wp-content/uploads/2016/10/horizontal_cv.png" alt="horizontal_cv" width="630" height="479" class="aligncenter size-full wp-image-2577" />
+
+Then the segmented box point cloud looks like this:
+<img src="http://bbs.slxrobot.com/wp-content/uploads/2016/10/horizontal_pcl1.png" alt="horizontal_pcl1" width="455" height="388" class="aligncenter size-full wp-image-2578" />
+<img src="http://bbs.slxrobot.com/wp-content/uploads/2016/10/horizontal_pcl2.png" alt="horizontal_pcl2" width="569" height="206" class="aligncenter size-full wp-image-2579" />
+
+Example output of processed_box_3D_data will be like this:
+```bash
+---
+center: [0.15881596472925671, 0.08577798547509508, 0.04179396809914904]
+longestEdgeLen: 0.348132386804
+medianEdgeLen: 0.158469796181
+shortestEdgeLen: 0.0812002420425
+longestEdgeDir: [-0.8460249376328047, -0.5330809538510344, -0.00815484792502631]
+medianEdgeDir: [0.5330865121979369, -0.8460591003942157, 0.0016640771524550496]
+shortestEdgeDir: [-0.007786559068384082, -0.00293940025209827, 0.9999653641121938]
+```
+
+* Second case: kinect sees three faces of the box
+
+Draw a rectangle which contains the box object on the image window.
+<img src="http://bbs.slxrobot.com/wp-content/uploads/2016/10/3face_cv.png" alt="3face_cv" width="635" height="477" class="aligncenter size-full wp-image-2574" />
+
+
+Then the segmented box point cloud looks like this:
+<img src="http://bbs.slxrobot.com/wp-content/uploads/2016/10/3face_pcl1.png" alt="3face_pcl1" width="803" height="578" class="aligncenter size-full wp-image-2575" />
+<img src="http://bbs.slxrobot.com/wp-content/uploads/2016/10/3face_pcl2.png" alt="3face_pcl2" width="677" height="423" class="aligncenter size-full wp-image-2576" />
+
+Example output of processed_box_3D_data will be like this:
+```bash
+---
+center: [0.16653619377903012, 0.051877501860137065, 0.08140872173126434]
+longestEdgeLen: 0.343752086163
+medianEdgeLen: 0.162613391876
+shortestEdgeLen: 0.0871307402849
+longestEdgeDir: [0.5491512947381777, 0.7872976496531994, -0.2803484730436944]
+medianEdgeDir: [-0.8466069263542995, 0.5237629179351927, -0.094494010629978]
+shortestEdgeDir: [-0.13417326893003623, -0.2524111482444952, -0.9582724801154021]
+```
+
+* Third case:kinect only sees two faces of the box
+Draw a rectangle which contains the box object on the image window.
+<img src="http://bbs.slxrobot.com/wp-content/uploads/2016/10/2face_cv.png" alt="2face_cv" width="641" height="483" class="aligncenter size-full wp-image-2571" />
+
+Then the segmented box point cloud looks like this:
+<img src="http://bbs.slxrobot.com/wp-content/uploads/2016/10/2face_pcl2.png" alt="2face_pcl2" width="631" height="404" class="aligncenter size-full wp-image-2573" />
+<img src="http://bbs.slxrobot.com/wp-content/uploads/2016/10/2face_pcl1.png" alt="2face_pcl1" width="594" height="333" class="aligncenter size-full wp-image-2572" />
+
+Example output of processed_box_3D_data will be like this:
+```bash
+---
+center: [0.12593763719872755, 0.034503789657448825, 0.09440309433414645]
+longestEdgeLen: 0.335469901562
+medianEdgeLen: 0.158436074853
+shortestEdgeLen: 0.0799739807844
+longestEdgeDir: [0.10318452483361243, 0.9512752283048365, -0.29056564464582335]
+medianEdgeDir: [0.9946621486234158, -0.09856396630986955, 0.030534482820521267]
+shortestEdgeDir: [-0.0017048003530623173, -0.31157605455935394, -0.9502196882200361]
+```
+
 
 
 ### Sphere Segmentation
