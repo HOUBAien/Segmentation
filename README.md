@@ -1,6 +1,6 @@
 # Segmentation
 
-This ros segmentation package is mainly used for **cylinder segmentation**, **box segmentation**, and ** sphere segmentation**. It's able to segment these elements and publish their **pose** information.
+This ros segmentation package is mainly used for **cylinder segmentation**, **box segmentation**, and **sphere segmentation**. It's able to segment these elements and publish their **pose** information.
 
 For cylinder element, it will publish the coordinates of cylinder center(point) and central axis(vector) in the world coordinate system, and the radius of the cylinder.
 
